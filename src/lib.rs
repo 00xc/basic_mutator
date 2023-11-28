@@ -235,6 +235,7 @@ impl Mutator {
     /// Sets the maximum input size
     pub fn max_input_size(mut self, size: usize) -> Self {
         self.max_input_size = size;
+        self.input.reserve(size);
         self
     }
 

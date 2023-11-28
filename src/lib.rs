@@ -34,6 +34,7 @@ use magic_values::MAGIC_VALUES;
 
 /// An empty database that never returns an input, useful for fuzzers without
 /// corpuses or input databases.
+#[derive(Debug, Clone, Copy)]
 pub struct EmptyDatabase;
 
 impl InputDatabase for EmptyDatabase {
@@ -61,6 +62,7 @@ pub trait InputDatabase {
 }
 
 /// A basic random number generator based on xorshift64 with 64-bits of state
+#[derive(Debug, Clone, Copy)]
 struct Rng {
     /// The RNG's seed and state
     seed: u64,
@@ -124,6 +126,7 @@ impl Rng {
 
 /// A mutator, a playground for corrupting the public `input` vector when
 /// `mutate` is invoked
+#[derive(Debug, Clone)]
 pub struct Mutator {
     /// Input vector to mutate, this is just an entire input files bytes
     ///
